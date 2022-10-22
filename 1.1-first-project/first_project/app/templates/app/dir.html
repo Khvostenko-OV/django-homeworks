@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directory list</title>
+</head>
+<body>
+    <h2>Текущая директория:</h2>
+    <p>
+    {% for name in dir_list %}
+        {{ name }}<br>
+    {% endfor %}
+    </p>
+    <br>
+    <a href="{% url 'home' %}"><button>На главную</button></a>
+</body>
+</html>
