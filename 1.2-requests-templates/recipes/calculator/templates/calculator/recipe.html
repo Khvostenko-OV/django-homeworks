@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ингредиенты</title>
+</head>
+<body>
+    <h2>Приготовление {{ dish_name }} на {{ servings }} чел.</h2>
+    <h3>Список ингредиентов:</h3>
+    {% for ing, num in ingredients.items %}
+        <li>{{ ing }}: {{ num }}</li>
+    {% endfor %}
+    <br>
+    <a href="{% url 'home' %}"><button>На главную</button></a>
+</body>
+</html>

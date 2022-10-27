@@ -1,6 +1,7 @@
 import datetime,os
 
 #from django.http import HttpResponse
+from django.conf import settings
 from django.shortcuts import render, reverse
 
 
@@ -30,4 +31,4 @@ def time_view(request):
 
 def workdir_view(request):
     current_dir = os.listdir()
-    return render(request, 'app/dir.html', {'dir_list': current_dir})
+    return render(request, 'app/dir.html', {'dir_name': settings.BASE_DIR,'dir_list': current_dir})
