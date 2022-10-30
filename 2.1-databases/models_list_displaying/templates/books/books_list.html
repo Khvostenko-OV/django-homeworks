@@ -7,17 +7,32 @@
         <div class="header">
             <h1><a href="/books">Каталог</a></h1>
         </div>
+        <div class="sort-block">
+            <span class="sort-item">Сортировать по:</span>
+            <a class="sort-item" href="?sort=name">названию</a>
+            <a class="sort-item" href="?sort=author">автору</a>
+            <a class="sort-item" href="?sort=pub_date">дате публикации</a>
+        </div>
+        <br><br>
         <div class="row">
-            <div class="book col-md-4">
-                <h2>Сияние</h2>
-                <p>Автор: Стивен Кинг</p>
-                <p>Дата публикации: 2018-09-10</p>
-            </div>
-            <div class="book col-md-4">
-                <h2>1984</h2>
-                <p>Автор: Джордж Оруэл</p>
-                <p>Дата публикации: 2015-03-11</p>
-            </div>
+            {% for book in books %}
+                <div class="book col-md-4">
+                    <h2>{{ book.name }}</h2>
+                    <p>Автор: {{ book.author }}</p>
+                    <p>Дата публикации:
+                        <a href="{% url 'by_date' book.pub_date %}">{{ book.pub_date }}</a>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="paginator">
+            {% if date_before %}
+                <a href="{% url 'by_date' date_before %}">⟵{{ date_before }}</a>
+            {% endif %}
+            {% if date_after %}
+                <a href="{% url 'by_date' date_after %}">{{ date_after }}⟶</a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
