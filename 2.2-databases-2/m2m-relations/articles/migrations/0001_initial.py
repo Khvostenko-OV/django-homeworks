@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=256, verbose_name='Название')),
                 ('text', models.TextField(verbose_name='Текст')),
                 ('published_at', models.DateTimeField(verbose_name='Дата публикации')),
-                ('image', models.ImageField(blank=True, null=True, upload_to='', verbose_name='Изображение')),
+                ('image', models.FileField(blank=True, null=True, upload_to='', verbose_name='Изображение')),
             ],
             options={
                 'verbose_name': 'Статья',
